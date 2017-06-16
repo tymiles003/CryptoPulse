@@ -14,4 +14,9 @@ describe Config, :model do
     it { expect(config.updated_at).to_not be_nil }
   end
 
+  context "valid Config" do
+    it { expect(config.allocation).to eq(@config.allocation) }
+    it { expect { JSON.parse(config.allocation).to_not raise_error} }
+  end
+
 end
