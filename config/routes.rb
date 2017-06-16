@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :configs
+  scope :api, defaults: {format: :json} do
+    resources :configs, only: [:index, :show, :update]
+  end
 end
