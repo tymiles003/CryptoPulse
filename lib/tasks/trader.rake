@@ -15,13 +15,34 @@ namespace :trader do
         next
       end
 
-      log_helper(msg="Executing trades for #{id}, allocation=#{conf.allocation}")
+      # Validate trade allocation
+      log_helper(msg="Executing trades for #{id}, allocation=#{conf.allocation}, USD amount=$#{conf.amount}")
       alloc = JSON.parse(conf.allocation)
       if alloc.values.sum != 100
-        log_helper report, :errors, "Invalid allocation doesn't add to '100', #{alloc}, trying next one."
+        log_helper report, :errors, "Invalid allocation for #{id}, doesn't add to '100', #{alloc}"
         next
       end
 
+      # Validate contribution amount and that we have enough USDT
+      amount = conf.amount
+      if not amount
+        log_helper report, :errors, "Invalid USD contribution amount for #{id}. Must be > $0.}"
+        next
+      end
+      begin
+        wallets =  Bittrex::Wallet.all
+      rescue Exception => e
+        log_helper report, :errors, "Unable to retrieve wallet info from Bittrex for #{id}: #{e}"
+        next
+      end
+      usdt_wallet = wallets.detect {|wall| wall.currency == "USDT"}
+      balance = usdt_wallet.nil? ? 0 : usdt_wallet.available
+      if amount > balance
+        log_helper report, :errors, "Not enough USDT to transact for #{id}. Amount required=$#{amount}. Balance=$#{balance}"
+        next
+      end
+
+      # Execute each trade
       alloc.each do |asset, contrib|
         log_helper(msg="Buying #{contrib}\% of #{asset}")
         if asset.downcase != 'btc'
