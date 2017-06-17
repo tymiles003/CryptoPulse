@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616051748) do
+ActiveRecord::Schema.define(version: 20170617214943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170616051748) do
     t.jsonb    "allocation", default: "{}", null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.float    "amount",     default: 0.0,  null: false
   end
 
 end

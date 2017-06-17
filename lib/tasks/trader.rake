@@ -1,24 +1,36 @@
+def log_helper(report=nil, msg_type=nil, msg)
+  # Saves a log of the trade status
+  report[msg_type].push(msg) unless (not msg_type or not report)
+  puts msg
+end
+
 namespace :trader do
   def trade_helper(config_ids, dry_run=true)
+    report = {:trades=>[], :errors=>[]}
     puts "Executing trades #{config_ids}, dry_run=#{dry_run}"
     config_ids.each do |id|
       conf = Config.find_by_id(id)
       if conf.nil?
-        puts "Invalid config #{id}, trying next one."
+        log_helper report, :errors, "Invalid config #{id}."
         next
       end
 
-      puts "Executing trades for #{id}, allocation=#{conf.allocation}"
+      log_helper(msg="Executing trades for #{id}, allocation=#{conf.allocation}")
       alloc = JSON.parse(conf.allocation)
       if alloc.values.sum != 100
-        puts "Invalid allocation doesn't add to '100', #{alloc}, trying next one."
+        log_helper report, :errors, "Invalid allocation doesn't add to '100', #{alloc}, trying next one."
         next
       end
 
       alloc.each do |asset, contrib|
-        puts "Buying #{contrib}\% of #{asset}"
+        log_helper(msg="Buying #{contrib}\% of #{asset}")
+        if asset.downcase != 'btc'
+          log_helper(msg=Bittrex::Quote.current("BTC-#{asset}").ask)
+        end
       end
     end
+
+    puts "Trade completed, report=#{report}"
   end
 
   desc "Executes trades based on the configs' allocations"
