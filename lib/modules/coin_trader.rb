@@ -64,10 +64,15 @@ class CoinTrader
       end
 
       # Market buy enough BTC to execute all of our trades
+      # TODO: complete order logic here. Market buy is disabled so we need to figure out how 
+      # to do limit orders to mimic a market buy
       begin
-        Bittrex::Order.market_buy('USDT-BTC', 1)
+        response = Bittrex::Order.market_buy('USDT-BTC', 0)  # Safe dummy data
+        if not response[:success]
+          raise RuntimeError, "#{response[:message]}"
+        end
       rescue Exception => e
-        return false, ["Could not buy BTC for trading: #{e}"]
+        return false, ["Could not buy BTC for trading due to exception: #{e}"]
       end
 
       # Execute each trade

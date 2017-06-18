@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :config_faker, class: 'Config' do
-    allocation { {:BTC=>80, :APX=>20}.to_json }
+    allocation { {:BTC=>100}.to_json }
     amount { 100 }
   end
 
