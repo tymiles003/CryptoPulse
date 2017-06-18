@@ -15,6 +15,6 @@ end
 Bittrex::Order
 class Bittrex::Order
   def self.market_buy(market, amount)
-    puts "Market buying #{amount} #{market}!"
+    #client.get('market/buymarket')
   end
 end

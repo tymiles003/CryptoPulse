@@ -17,9 +17,18 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require_relative 'support/database_cleaners.rb'
+require_relative 'support/database_cleaners'
+require_relative 'support/fake_bittrex'
+require 'webmock/rspec'
+
+WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
+  # Configure Sinatra
+  config.before(:each) do 
+    stub_request(:any, /bittrex.com/).to_rack(FakeBittrex)
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

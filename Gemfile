@@ -37,6 +37,8 @@ group :development, :test do
   gem 'database_cleaner', '~>1.5', '>=1.5.3'
   gem 'factory_girl_rails', '~>4.7', '>=4.7.0'
   gem 'faker', '~>1.6', '>=1.6.6'
+  gem 'sinatra', '~>2.0', '>=2.0.0'
+  gem 'webmock', '~>3.0', '>=3.0.1'
 end
 
 group :development do

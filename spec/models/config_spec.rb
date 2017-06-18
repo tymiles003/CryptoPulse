@@ -7,16 +7,25 @@ describe Config, :model do
   end
   let(:config) { Config.find(@config.id) }
 
-  context "created Config" do
-    it { expect(config).to be_persisted }
-    it { expect(config.allocation).to_not be_nil }
-    it { expect(config.created_at).to_not be_nil }
-    it { expect(config.updated_at).to_not be_nil }
+  context "given a valid Config" do
+    it "is persisted" do
+      expect(config).to be_persisted
+    end
+    it "has a non-nil allocation" do
+      expect(config.allocation).to_not be_nil
+    end
+    it "has a created_at" do 
+      expect(config.created_at).to_not be_nil
+    end
+    it "has an updated_at" do
+      expect(config.updated_at).to_not be_nil
+    end
+    it "has an allocation" do 
+      expect(config.allocation).to eq(@config.allocation)
+    end
+    it "has a JSON-parsable allocation" do
+      expect(config.allocation).to eq(@config.allocation)
+      expect { JSON.parse(config.allocation).to_not raise_error}
+    end
   end
-
-  context "valid Config" do
-    it { expect(config.allocation).to eq(@config.allocation) }
-    it { expect { JSON.parse(config.allocation).to_not raise_error} }
-  end
-
 end

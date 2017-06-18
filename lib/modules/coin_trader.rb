@@ -26,11 +26,18 @@ class CoinTrader
       end
 
       # Validate trade allocation amount
-      info("Allocation=#{conf.allocation}, USD amount=$#{conf.amount}")
+      info "Allocation=#{conf.allocation}, USD amount=$#{conf.amount}"
       alloc = JSON.parse(conf.allocation)
       if alloc.values.sum != 100
         return false, ["Invalid allocation. doesn't add to '100', #{alloc}"]
       end
+
+      # Validate the contribution amount
+      amount = conf.amount
+      if amount.nil? or amount == 0
+        return false, ["Invalid USD contribution amount. Must be > $0.}"]
+      end
+
       # Validate the currencies in our allocation
       begin
         bittrex_currencies = Bittrex::Currency.all
@@ -42,11 +49,7 @@ class CoinTrader
         return false, ["Allocation contains invalid currencies: #{invalid_currencies}"]
       end
 
-      # Validate contribution amount
-      amount = conf.amount
-      if not amount
-        return false, ["Invalid USD contribution amount. Must be > $0.}"]
-      end
+      # Validate we have enough money in our wallet
       begin
         # Get all of the active wallets for this user
         wallets =  Bittrex::Wallet.all
@@ -69,10 +72,10 @@ class CoinTrader
 
       # Execute each trade
       alloc.each do |asset, contrib|
-        info("Buying #{contrib}\% of #{asset}")
+        info "Buying #{contrib}\% of #{asset}"
         trades.push({asset => contrib})
       end
-      info("Trades completed.")
+      info "Trades completed."
       trades
     end
 end
