@@ -26,5 +26,8 @@ module Cryptopulse
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Include custom modules
+    config.autoload_paths << "#{Rails.root}/lib/modules"
   end
 end

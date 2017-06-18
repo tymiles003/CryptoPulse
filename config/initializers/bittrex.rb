@@ -11,3 +11,10 @@ class Bittrex::Wallet
     client.get('account/getbalances').map{|data| new(data) }
   end
 end
+
+Bittrex::Order
+class Bittrex::Order
+  def self.market_buy(market, amount)
+    puts "Market buying #{amount} #{market}!"
+  end
+end
