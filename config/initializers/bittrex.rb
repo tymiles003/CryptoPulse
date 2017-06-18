@@ -1,3 +1,5 @@
+# Contains bittrex gem configuration and bug fixes
+
 Bittrex.config do |c|
   c.key = Figaro.env.bittrex_api_key
   c.secret = Figaro.env.bittrex_api_secret
@@ -36,7 +38,24 @@ end
 
 Bittrex::Order
 class Bittrex::Order
-  def self.market_buy(market, quantity)
-    client.get_full('market/buymarket', market: market, quantity: quantity)
+  def initialize(attrs = {})
+    @id = attrs['Id'] || attrs['OrderUuid']
+    @type = (attrs['Type'] || attrs['OrderType']).to_s.capitalize
+    @exchange = attrs['Exchange']
+    @quantity = attrs['Quantity']
+    @remaining = attrs['QuantityRemaining']
+    @price = attrs['Rate'] || attrs['Price']
+    @total = attrs['Total']
+    @fill = attrs['FillType']
+    @limit = attrs['Limit']
+    @commission = attrs['Commission']
+    @raw = attrs
+    # Override the official version with a small tweak to this line
+    @executed_at = attrs.key?('TimeStamp') ? Time.parse(attrs['TimeStamp']) : nil
+  end
+
+  def self.limit_buy(market, quantity, rate)
+    client.get_full(
+      'market/buylimit', market: market, quantity: quantity, rate: rate)
   end
 end

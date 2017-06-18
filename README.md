@@ -18,3 +18,15 @@ Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf
     ```
 5. Make sure that your servers white list is set correctly in your Bittrex settings.
 6. `bundle exec rails s`
+
+## Data models
+### Config
+1. __amount__: amount of USD to invest, using a dollar cost averaging technique, on a weekly cadence
+2. __allocation__: a JSON object with the desired asset allocation percentages. For example, `{"BTC": 90, "ETH": 10}`
+would buy roughly $90 worth of BTC and $10 worth of ETH, if the trading amount is $100.
+*Note*: The sum of the values in the JSON object must be no greater than 100 (since it's a percentage).
+If the allocation is less than 100, CryptoPulse will fill in the gaps with BTC. For example, `{"ZEC": 10}`
+would buy $10 worth of ZEC and $90 worth of BTC, if the trading amount is $100
+
+### Order
+1. __uuid__: the Bittrex UUID of orders we've placed

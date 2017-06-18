@@ -1,0 +1,934 @@
+{
+  "success": true,
+  "message": "",
+  "result": [
+    {
+      "Quantity": 6.67777015,
+      "Rate": 2534.78
+    },
+    {
+      "Quantity": 1.618,
+      "Rate": 2548.99499999
+    },
+    {
+      "Quantity": 0.35202574,
+      "Rate": 2550
+    },
+    {
+      "Quantity": 0.00971206,
+      "Rate": 2562
+    },
+    {
+      "Quantity": 0.2403488,
+      "Rate": 2566.822
+    },
+    {
+      "Quantity": 0.059,
+      "Rate": 2568
+    },
+    {
+      "Quantity": 0.16976456,
+      "Rate": 2579
+    },
+    {
+      "Quantity": 4.42831,
+      "Rate": 2588.711
+    },
+    {
+      "Quantity": 1.72739828,
+      "Rate": 2600
+    },
+    {
+      "Quantity": 0.21499653,
+      "Rate": 2627.8
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 2628.79420043
+    },
+    {
+      "Quantity": 0.02867188,
+      "Rate": 2629
+    },
+    {
+      "Quantity": 0.8550602,
+      "Rate": 2635
+    },
+    {
+      "Quantity": 0.31637107,
+      "Rate": 2635.961
+    },
+    {
+      "Quantity": 0.28548707,
+      "Rate": 2639
+    },
+    {
+      "Quantity": 2.61154221,
+      "Rate": 2639.7
+    },
+    {
+      "Quantity": 4.3e-7,
+      "Rate": 2639.999
+    },
+    {
+      "Quantity": 0.99188294,
+      "Rate": 2640
+    },
+    {
+      "Quantity": 0.00581275,
+      "Rate": 2642.02566994
+    },
+    {
+      "Quantity": 0.00372031,
+      "Rate": 2642.02567001
+    },
+    {
+      "Quantity": 1.28224785,
+      "Rate": 2645
+    },
+    {
+      "Quantity": 0.00501822,
+      "Rate": 2648.999
+    },
+    {
+      "Quantity": 0.89974827,
+      "Rate": 2649
+    },
+    {
+      "Quantity": 0.03624374,
+      "Rate": 2649.3
+    },
+    {
+      "Quantity": 0.04081664,
+      "Rate": 2649.9
+    },
+    {
+      "Quantity": 3.55079142,
+      "Rate": 2650
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 2653
+    },
+    {
+      "Quantity": 0.07479915,
+      "Rate": 2654.34688546
+    },
+    {
+      "Quantity": 0.03831374,
+      "Rate": 2659
+    },
+    {
+      "Quantity": 0.43,
+      "Rate": 2660
+    },
+    {
+      "Quantity": 0.2,
+      "Rate": 2679
+    },
+    {
+      "Quantity": 0.21,
+      "Rate": 2680
+    },
+    {
+      "Quantity": 0.04,
+      "Rate": 2682
+    },
+    {
+      "Quantity": 0.290765,
+      "Rate": 2686.627554
+    },
+    {
+      "Quantity": 0.015,
+      "Rate": 2688
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 2690
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 2690.998
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 2691
+    },
+    {
+      "Quantity": 0.03,
+      "Rate": 2694
+    },
+    {
+      "Quantity": 0.34000022,
+      "Rate": 2695
+    },
+    {
+      "Quantity": 1.09,
+      "Rate": 2699
+    },
+    {
+      "Quantity": 0.21202531,
+      "Rate": 2700
+    },
+    {
+      "Quantity": 0.01640005,
+      "Rate": 2700.5
+    },
+    {
+      "Quantity": 0.00418439,
+      "Rate": 2700.867
+    },
+    {
+      "Quantity": 0.07930115,
+      "Rate": 2702
+    },
+    {
+      "Quantity": 0.05,
+      "Rate": 2702.5
+    },
+    {
+      "Quantity": 0.32939986,
+      "Rate": 2705
+    },
+    {
+      "Quantity": 1.09054485,
+      "Rate": 2710
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 2710.997
+    },
+    {
+      "Quantity": 0.1,
+      "Rate": 2720
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 2720.997
+    },
+    {
+      "Quantity": 0.05,
+      "Rate": 2721
+    },
+    {
+      "Quantity": 0.00233211,
+      "Rate": 2725
+    },
+    {
+      "Quantity": 0.03944172,
+      "Rate": 2727.37398295
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 2730.997
+    },
+    {
+      "Quantity": 1.17582893,
+      "Rate": 2735
+    },
+    {
+      "Quantity": 0.03155874,
+      "Rate": 2737.997
+    },
+    {
+      "Quantity": 0.034,
+      "Rate": 2743
+    },
+    {
+      "Quantity": 0.05244494,
+      "Rate": 2746.970999
+    },
+    {
+      "Quantity": 1,
+      "Rate": 2748.97
+    },
+    {
+      "Quantity": 0.56,
+      "Rate": 2749
+    },
+    {
+      "Quantity": 0.0001,
+      "Rate": 2749.66459002
+    },
+    {
+      "Quantity": 0.0295733,
+      "Rate": 2749.999
+    },
+    {
+      "Quantity": 0.67227394,
+      "Rate": 2749.99999999
+    },
+    {
+      "Quantity": 0.50633805,
+      "Rate": 2750
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 2750.997
+    },
+    {
+      "Quantity": 2,
+      "Rate": 2754.6682421
+    },
+    {
+      "Quantity": 0.00085735,
+      "Rate": 2758
+    },
+    {
+      "Quantity": 0.1,
+      "Rate": 2760
+    },
+    {
+      "Quantity": 0.13361131,
+      "Rate": 2775
+    },
+    {
+      "Quantity": 0.5,
+      "Rate": 2775.86699994
+    },
+    {
+      "Quantity": 0.0721223,
+      "Rate": 2780
+    },
+    {
+      "Quantity": 3,
+      "Rate": 2782.21492452
+    },
+    {
+      "Quantity": 0.00085735,
+      "Rate": 2784.27
+    },
+    {
+      "Quantity": 0.005,
+      "Rate": 2788
+    },
+    {
+      "Quantity": 1.26125965,
+      "Rate": 2790
+    },
+    {
+      "Quantity": 1.05,
+      "Rate": 2799
+    },
+    {
+      "Quantity": 1.36039868,
+      "Rate": 2800
+    },
+    {
+      "Quantity": 2.459e-5,
+      "Rate": 2800.002
+    },
+    {
+      "Quantity": 1.0044046,
+      "Rate": 2810
+    },
+    {
+      "Quantity": 0.01192552,
+      "Rate": 2820
+    },
+    {
+      "Quantity": 0.05,
+      "Rate": 2821
+    },
+    {
+      "Quantity": 0.00085735,
+      "Rate": 2823.67
+    },
+    {
+      "Quantity": 0.04,
+      "Rate": 2828
+    },
+    {
+      "Quantity": 1,
+      "Rate": 2830
+    },
+    {
+      "Quantity": 0.1,
+      "Rate": 2840
+    },
+    {
+      "Quantity": 0.08058411,
+      "Rate": 2850
+    },
+    {
+      "Quantity": 0.03711803,
+      "Rate": 2860
+    },
+    {
+      "Quantity": 0.68610442,
+      "Rate": 2864.9
+    },
+    {
+      "Quantity": 0.00085735,
+      "Rate": 2876.2
+    },
+    {
+      "Quantity": 0.1,
+      "Rate": 2880
+    },
+    {
+      "Quantity": 0.1,
+      "Rate": 2881.997
+    },
+    {
+      "Quantity": 0.000949,
+      "Rate": 2890
+    },
+    {
+      "Quantity": 0.05,
+      "Rate": 2896
+    },
+    {
+      "Quantity": 0.6,
+      "Rate": 2896.329
+    },
+    {
+      "Quantity": 1.1,
+      "Rate": 2899
+    },
+    {
+      "Quantity": 29.73152172,
+      "Rate": 2900
+    },
+    {
+      "Quantity": 0.023,
+      "Rate": 2917
+    },
+    {
+      "Quantity": 6.04,
+      "Rate": 2920
+    },
+    {
+      "Quantity": 0.08679706,
+      "Rate": 2921
+    },
+    {
+      "Quantity": 9.8e-6,
+      "Rate": 2930
+    },
+    {
+      "Quantity": 0.0355,
+      "Rate": 2943.49999999
+    },
+    {
+      "Quantity": 0.5,
+      "Rate": 2945
+    },
+    {
+      "Quantity": 0.03999988,
+      "Rate": 2947
+    },
+    {
+      "Quantity": 0.015279,
+      "Rate": 2947.4037
+    },
+    {
+      "Quantity": 0.0561814,
+      "Rate": 2947.633
+    },
+    {
+      "Quantity": 1.1056905,
+      "Rate": 2950
+    },
+    {
+      "Quantity": 0.0009357,
+      "Rate": 2950.084
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 2956
+    },
+    {
+      "Quantity": 0.02280147,
+      "Rate": 2956.568
+    },
+    {
+      "Quantity": 0.1,
+      "Rate": 2960
+    },
+    {
+      "Quantity": 0.00390201,
+      "Rate": 2966
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 2968
+    },
+    {
+      "Quantity": 0.28881209,
+      "Rate": 2970
+    },
+    {
+      "Quantity": 0.211,
+      "Rate": 2976
+    },
+    {
+      "Quantity": 0.00084375,
+      "Rate": 2976.65272653
+    },
+    {
+      "Quantity": 0.2,
+      "Rate": 2981.997
+    },
+    {
+      "Quantity": 0.0070021,
+      "Rate": 2983.5
+    },
+    {
+      "Quantity": 0.2,
+      "Rate": 2985.9
+    },
+    {
+      "Quantity": 5.6960617,
+      "Rate": 2989
+    },
+    {
+      "Quantity": 0.029,
+      "Rate": 2989.568
+    },
+    {
+      "Quantity": 1.69417327,
+      "Rate": 2990
+    },
+    {
+      "Quantity": 0.18126314,
+      "Rate": 2995.961
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 2996
+    },
+    {
+      "Quantity": 0.046,
+      "Rate": 2998
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 2998.29
+    },
+    {
+      "Quantity": 1.0187393,
+      "Rate": 2999
+    },
+    {
+      "Quantity": 1,
+      "Rate": 2999.30295567
+    },
+    {
+      "Quantity": 2.0724275,
+      "Rate": 2999.99999999
+    },
+    {
+      "Quantity": 3.64255484,
+      "Rate": 3000
+    },
+    {
+      "Quantity": 1,
+      "Rate": 3000.002
+    },
+    {
+      "Quantity": 0.01844184,
+      "Rate": 3000.05
+    },
+    {
+      "Quantity": 2.50989676,
+      "Rate": 3010
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 3015.5
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3025
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 3033.33
+    },
+    {
+      "Quantity": 1.06206073,
+      "Rate": 3050
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3053
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3076
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 3096
+    },
+    {
+      "Quantity": 1.23264447,
+      "Rate": 3100
+    },
+    {
+      "Quantity": 0.00655087,
+      "Rate": 3110
+    },
+    {
+      "Quantity": 0.96866282,
+      "Rate": 3122
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3125
+    },
+    {
+      "Quantity": 3.32750515,
+      "Rate": 3140
+    },
+    {
+      "Quantity": 10,
+      "Rate": 3150
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3153
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 3169
+    },
+    {
+      "Quantity": 0.03497685,
+      "Rate": 3170.20000004
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3176
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 3196
+    },
+    {
+      "Quantity": 0.21,
+      "Rate": 3200
+    },
+    {
+      "Quantity": 0.2,
+      "Rate": 3208
+    },
+    {
+      "Quantity": 0.10423447,
+      "Rate": 3219.13900021
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3225
+    },
+    {
+      "Quantity": 0.02702449,
+      "Rate": 3228.77500001
+    },
+    {
+      "Quantity": 0.07028444,
+      "Rate": 3250
+    },
+    {
+      "Quantity": 1,
+      "Rate": 3250.002
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3276
+    },
+    {
+      "Quantity": 1,
+      "Rate": 3290
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 3296
+    },
+    {
+      "Quantity": 0.28794844,
+      "Rate": 3300
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3325
+    },
+    {
+      "Quantity": 3.24127795,
+      "Rate": 3350
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3353
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3376
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 3396
+    },
+    {
+      "Quantity": 0.2,
+      "Rate": 3400
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3425
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3453
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3476
+    },
+    {
+      "Quantity": 0.02,
+      "Rate": 3483.5
+    },
+    {
+      "Quantity": 0.1,
+      "Rate": 3485
+    },
+    {
+      "Quantity": 0.0187393,
+      "Rate": 3499
+    },
+    {
+      "Quantity": 1.68584255,
+      "Rate": 3500
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3525
+    },
+    {
+      "Quantity": 1.5,
+      "Rate": 3550
+    },
+    {
+      "Quantity": 0.25,
+      "Rate": 3553
+    },
+    {
+      "Quantity": 0.2,
+      "Rate": 3600
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 3666
+    },
+    {
+      "Quantity": 0.2,
+      "Rate": 3680
+    },
+    {
+      "Quantity": 0.4134978,
+      "Rate": 3901.12345
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 3926.455
+    },
+    {
+      "Quantity": 1,
+      "Rate": 3990
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 3999
+    },
+    {
+      "Quantity": 0.007,
+      "Rate": 4000
+    },
+    {
+      "Quantity": 4.9e-7,
+      "Rate": 4000.376
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 4096
+    },
+    {
+      "Quantity": 0.00117716,
+      "Rate": 4200
+    },
+    {
+      "Quantity": 0.1,
+      "Rate": 4600
+    },
+    {
+      "Quantity": 0.00085735,
+      "Rate": 4889.54
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 5000
+    },
+    {
+      "Quantity": 0.06746887,
+      "Rate": 5490
+    },
+    {
+      "Quantity": 0.05,
+      "Rate": 6500
+    },
+    {
+      "Quantity": 0.04581892,
+      "Rate": 8100
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 8192
+    },
+    {
+      "Quantity": 0.29174712,
+      "Rate": 20602
+    },
+    {
+      "Quantity": 0.02567729,
+      "Rate": 20603
+    },
+    {
+      "Quantity": 0.02981807,
+      "Rate": 20605
+    },
+    {
+      "Quantity": 0.01465179,
+      "Rate": 20607
+    },
+    {
+      "Quantity": 0.02075111,
+      "Rate": 20609
+    },
+    {
+      "Quantity": 0.01826514,
+      "Rate": 20611
+    },
+    {
+      "Quantity": 0.0173064,
+      "Rate": 20613
+    },
+    {
+      "Quantity": 0.01730673,
+      "Rate": 20615
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 21000
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 24000
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 24444.07777777
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 38000
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 69999
+    },
+    {
+      "Quantity": 0.16253267,
+      "Rate": 99909
+    },
+    {
+      "Quantity": 0.0005,
+      "Rate": 99999
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 122199
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 498999
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 698999
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 898999
+    },
+    {
+      "Quantity": 1.001,
+      "Rate": 999999
+    },
+    {
+      "Quantity": 0.1,
+      "Rate": 1000000
+    },
+    {
+      "Quantity": 0.01439028,
+      "Rate": 1111110
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 1999997
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 1999998
+    },
+    {
+      "Quantity": 0.00034207,
+      "Rate": 1999999
+    },
+    {
+      "Quantity": 0.101,
+      "Rate": 5000000
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 7600000
+    },
+    {
+      "Quantity": 0.1,
+      "Rate": 10000000
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 11000000
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 42000000
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 91100000
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 911000000
+    },
+    {
+      "Quantity": 0.00010189,
+      "Rate": 999999999
+    },
+    {
+      "Quantity": 0.001,
+      "Rate": 9999999999
+    },
+    {
+      "Quantity": 0.0005,
+      "Rate": 9999999999.9
+    },
+    {
+      "Quantity": 0.01,
+      "Rate": 9999999999.99
+    }
+  ]
+}
