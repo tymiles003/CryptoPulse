@@ -68,9 +68,7 @@ class CoinTrader
       # to do limit orders to mimic a market buy
       begin
         response = Bittrex::Order.market_buy('USDT-BTC', 0)  # Safe dummy data
-        if not response[:success]
-          raise RuntimeError, "#{response[:message]}"
-        end
+        raise RuntimeError.new response["message"] unless response["success"]
       rescue Exception => e
         return false, ["Could not buy BTC for trading due to exception: #{e}"]
       end
