@@ -8,39 +8,73 @@ class CoinTrader
     @@logger.info msg
   end
 
-  def trade(id, dry_run=true)
-    success, details = _trade(id, dry_run)
+  def markets
+    if @markets.nil?
+      @markets = Bittrex::Summary.all
+    end
+    @markets
+  end
+
+  def get_market(mkt_name)
+    markets.detect {|mkt| mkt.name == mkt_name}
+  end
+
+  def wallets
+    if @wallets.nil?
+      @wallets = Bittrex::Wallet.all
+    end
+    @wallets
+  end    
+
+  def trade(id)
+    success = false
+    begin
+      success, details = _trade(id)
+    rescue Exception => e
+      details = ["Uncaught exception: #{e}"]
+    end
     if not success
-      raise RuntimeError, "Trade failed: #{details[0]}"
+      msg = "Trade failed: #{details[0]}"
+      info msg
+      raise RuntimeError, msg
     end
     return details
   end
 
   private
-    def _safe_market_buy(market, limit, dry_run)
-      # Performs a "safe" market buy by looking at the top sell orders and executing a buy order
-      # that is within that range
-      # Returns quantity bought
+    def _convert_currency(from_amt, from_curr, to_curr)
+      # Converts a currency from one amount to another
+      info "Converting #{from_amt} #{from_curr} to #{to_curr}"
 
-      info "Checking sell market order book for #{market}"
-      sell_orders = Bittrex::Order.book(market, :sell, Figaro.env.market_buy_threshold.to_i)
-      # Inspect only the top sell orders. The "depth" parameter in the Bittrex API has a
-      # bug where all of the sell orders are returned.
-      # TODO: remove workaround when API is fixed
-      sell_orders = sell_orders.first(Figaro.env.market_buy_threshold.to_i)
-
-      begin
-        #response = Bittrex::Order.limit_buy(market, quantity, rate)
-      rescue RuntimeError => e
-        return false, ["Could not buy BTC for trading due to exception: #{e}"]
-      end
+      # Check both pairs (eg. "USDT-BTC" and "BTC-USDT" to see which exists)
+      market_name = "#{from_curr.upcase}-#{to_curr.upcase}"
+      market = get_market market_name
+      return market.last / from_amt if market
+      market_name = "#{to_curr.upcase}-#{from_curr.upcase}"
+      market = get_market market_name
+      return market.last * from_amt if market
+      info "Unable to find market for exchange"
+      nil
     end
 
-    def _trade(id, dry_run)
+    def _market_buy(market_name, limit)
+      # Performs a "naive" market buy by executing a limit buy based on the Ask price
+      info "Executing market buy for #{market_name}: #{limit}.}"
+
+      market_name = "BTC-#{market_name.upcase}"
+      market = get_market market_name
+      rate = market.raw['Ask']
+      quantity = limit / rate
+
+      info "Buying #{quantity} of #{market_name} at #{rate}"
+      response = Bittrex::Order.limit_buy(market_name, quantity, rate)
+    end
+
+    def _trade(id)
       # Executes the trades for a given Dollar Cost Average config.
       # Returns true with an array of trades if successful.
       # Returns false with an array of error messages if not successful.
-      info "Executing trade for config #{id}, dry_run=#{dry_run}"
+      info "Executing trade for config #{id}"
       trades = []
 
       info "Validating that the config exists"
@@ -72,37 +106,23 @@ class CoinTrader
         return false, ["Allocation contains invalid currencies: #{invalid_currencies}"]
       end
 
-      info "Validating we have enough USDT in our wallet"
-      begin
-        wallets =  Bittrex::Wallet.all
-      rescue RuntimeError => e
-        return false, ["Unable to retrieve wallet info from Bittrex: #{e}"]
-      end
-      usdt_wallet = wallets.detect {|wall| wall.currency == "USDT"}
-      usd_balance = usdt_wallet.nil? ? 0 : usdt_wallet.available
-      if usd_amount > usd_balance
-        return false, ["Not enough USDT to transact. Amount required=$#{usd_amount}. Balance=$#{usd_balance}"]
+      info "Validating we have enough BTC in our wallet for a #{usd_amount} contribution"
+      btc_wallet = wallets.detect {|wall| wall.currency == "BTC"}
+      btc_balance = btc_wallet.nil? ? 0 : btc_wallet.available
+      usd_balance = _convert_currency(btc_balance, "BTC", "USDT")
+      if usd_balance.nil? or usd_amount > usd_balance
+        return false, ["Not enough USDT to transact. Amount required=$#{usd_amount}. Balance=$#{usd_balance} (#{btc_balance} BTC)"]
       end
 
-      # Turn USDT into BTC prior to trading (all cryptos exchange with BTC, but not USDT)
-      begin
-        btc_amount = _safe_market_buy 'USDT-BTC', usd_amount, dry_run
-      rescue RuntimeError => e
-        return false, ["Unable to market buy USDT-BTC: #{e}"]
-      end
-
-      '''
       alloc.each do |asset, contrib|
-        asset = asset.downcase
-        if asset == "btc"
-          info "Skipping BTC allocation, already bought"
-          next
+        amount_btc = btc_balance * (contrib.to_f/100)
+        info "Buying #{amount_btc} BTC worth of #{asset}"
+        begin
+          _market_buy asset, amount_btc
+        rescue RuntimeError => e
+          return false, ["Unable to market buy #{asset} for #{amount_btc}"]
         end
-
-        info "Buying #{contrib}\% of #{asset}"
-        trades.push({asset => contrib})
       end
-      '''
       info "Trades completed."
       return true, trades
     end

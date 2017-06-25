@@ -34,6 +34,14 @@ class FakeBittrex < Sinatra::Base
     json_response 200, "orderbook_#{params[:market].downcase}.json"
   end
 
+  get "#{public_prefix}getmarketsummaries*" do
+    json_response 200, 'marketsummaries.json'
+  end
+
+  get "#{market_prefix}buylimit*" do
+    json_response 200, 'buylimit.json'
+  end
+
   private
 
   def json_response(response_code, file_name)

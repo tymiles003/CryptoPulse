@@ -4,22 +4,15 @@
   "result": [
     {
       "Currency": "BTC",
-      "Balance": 0,
-      "Available": 0,
+      "Balance": 0.5,
+      "Available": 0.5,
       "Pending": 0,
       "CryptoAddress": "111000"
     },
     {
-      "Currency": "USDT",
-      "Balance": 500.00,
-      "Available": 500.00,
-      "Pending": 0,
-      "CryptoAddress": null
-    },
-    {
       "Currency": "ZEC",
-      "Balance": 0,
-      "Available": 0,
+      "Balance": 30,
+      "Available": 30,
       "Pending": 0,
       "CryptoAddress": "t111000"
     }
