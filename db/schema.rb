@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618071254) do
+ActiveRecord::Schema.define(version: 20170625213841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,21 @@ ActiveRecord::Schema.define(version: 20170618071254) do
     t.float    "amount",     default: 0.0, null: false
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string   "uuid",       null: false
+  create_table "executions", force: :cascade do |t|
+    t.integer  "config_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["config_id"], name: "index_executions_on_config_id", using: :btree
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string   "uuid",         null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "execution_id"
+    t.index ["execution_id"], name: "index_orders_on_execution_id", using: :btree
+  end
+
+  add_foreign_key "executions", "configs"
+  add_foreign_key "orders", "executions"
 end

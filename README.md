@@ -3,7 +3,7 @@
 A dollar cost averaging cryptocurrency trading bot. 
 
 CryptoPulse executes periodic trades on the Bittrex exchange using a preset allocation that you set yourself. 
-It converts USDT to Bitcoin in order to execute trades using BTC pairs.
+It executes all trades using BTC pairs. 
 
 Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf. And never leave coins on exchanges for long.__
 
@@ -20,13 +20,15 @@ Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf
 6. `bundle exec rails s`
 
 ## Data models
-### Config
+### Config - holds information about trade allocations
 1. __amount__: amount of USD to invest, using a dollar cost averaging technique, on a weekly cadence
-2. __allocation__: a JSON object with the desired asset allocation percentages. For example, `{"BTC": 90, "ETH": 10}`
-would buy roughly $90 worth of BTC and $10 worth of ETH, if the trading amount is $100.
+2. __allocation__: a JSON object with the desired asset allocation percentages. For example, `{"APX": 90, "ETH": 10}`
+would buy roughly $90 worth of APX and $10 worth of ETH, if the trading amount is $100.
 *Note*: The sum of the values in the JSON object must be no greater than 100 (since it's a percentage).
-If the allocation is less than 100, CryptoPulse will fill in the gaps with BTC. For example, `{"ZEC": 10}`
-would buy $10 worth of ZEC and $90 worth of BTC, if the trading amount is $100
 
-### Order
-1. __uuid__: the Bittrex UUID of orders we've placed
+### Execution - holds information about an execution of a set of trades matching the desired Config
+1. __config__: a foreign key to the config that was executed 
+
+### Order - holds information about a particular Bittrex order that was part of an Execution
+1. __uuid__: the Bittrex UUID of the order
+2. __execution__: a foreign key to the execution corresponding to this order

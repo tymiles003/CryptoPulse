@@ -10,12 +10,6 @@ describe CoinTrader, :module do
   let(:config) { Config.find(@config.id) }
   let(:coin_trader) { @coin_trader }
 
-  context "given a valid Config" do
-    it "performs a market buy of BTC" do
-      expect{ coin_trader.trade(config.id) }.to_not raise_error 
-    end
-  end
-
   context "given an invalid Config" do
     it "when config id doesn't exist" do 
       expect{ coin_trader.trade(1000) }.to raise_error(RuntimeError) 
@@ -47,6 +41,12 @@ describe CoinTrader, :module do
         :allocation=>{:BTC=>100}.to_json,
         :amount=>1000)
       expect{ coin_trader.trade(conf_no_money.id) }.to raise_error(RuntimeError)
+    end
+  end
+
+  context "given a valid Config" do
+    it "performs a market buy of BTC" do
+      expect{ coin_trader.trade(config.id) }.to_not raise_error 
     end
   end
 end
