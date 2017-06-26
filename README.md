@@ -8,7 +8,7 @@ It executes all trades using BTC pairs.
 Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf. And never leave coins on exchanges for long.__
 
 ## Setup
-1. Install Rails
+1. Install Rails on the server. Here's a guide for [Raspberry Pi](http://elinux.org/RPi_Ruby_on_Rails)
 2. `bundle Install`
 3. `bundle exec rake db:create db:migrate`
 4. Add an application.yml file containing your Bittrex API key and secret:
