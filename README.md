@@ -9,15 +9,16 @@ Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf
 
 ## Setup
 1. Install Rails on the server. Here's a guide for [Raspberry Pi](http://elinux.org/RPi_Ruby_on_Rails)
-2. `bundle Install`
-3. `bundle exec rake db:create db:migrate`
-4. Add an application.yml file containing your Bittrex API key and secret:
+2. `gem install bundle`
+3. `bundle install`
+4. `bundle exec rake db:create db:migrate`
+5. Add an application.yml file containing your Bittrex API key and secret:
     ```
     bittrex_api_key: "000"
     bittrex_api_secret: "000"
     ```
-5. Make sure that your servers white list is set correctly in your Bittrex settings.
-6. `bundle exec rails s`
+6. Make sure that your servers white list is set correctly in your Bittrex settings.
+7. `bundle exec rails s`
 
 ## Running the test cases
 1. `rspec` should return all passed results
