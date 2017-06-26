@@ -8,7 +8,7 @@ end
 Bittrex::Client
 class Bittrex::Client
   def get_full(path, params = {}, headers = {})
-    # This is identical to the Bittrex::Client::get function, 
+    # This is identical to the Bittrex::Client::get function,
     # but it returns the full response
     nonce = Time.now.to_i
     response = connection.get do |req|

@@ -1,9 +1,9 @@
 # CryptoPulse
 
-A dollar cost averaging cryptocurrency trading bot. 
+A dollar cost averaging cryptocurrency trading bot.
 
-CryptoPulse executes periodic trades on the Bittrex exchange using a preset allocation that you set yourself. 
-It executes all trades using BTC pairs. 
+CryptoPulse executes periodic trades on the Bittrex exchange using a preset allocation that you set yourself.
+It executes all trades using BTC pairs.
 
 Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf. And never leave coins on exchanges for long.__
 
@@ -19,6 +19,9 @@ Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf
 5. Make sure that your servers white list is set correctly in your Bittrex settings.
 6. `bundle exec rails s`
 
+## Running the test cases
+1. `rspec` should return all passed results
+
 ## Data models
 ### Config - holds information about trade allocations
 1. __amount__: amount of USD to invest, using a dollar cost averaging technique, on a weekly cadence
@@ -27,7 +30,7 @@ would buy roughly $90 worth of APX and $10 worth of ETH, if the trading amount i
 *Note*: The sum of the values in the JSON object must be no greater than 100 (since it's a percentage).
 
 ### Execution - holds information about an execution of a set of trades matching the desired Config
-1. __config__: a foreign key to the config that was executed 
+1. __config__: a foreign key to the config that was executed
 
 ### Order - holds information about a particular Bittrex order that was part of an Execution
 1. __uuid__: the Bittrex UUID of the order

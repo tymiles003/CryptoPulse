@@ -11,8 +11,8 @@ describe CoinTrader, :module do
   let(:coin_trader) { @coin_trader }
 
   context "given an invalid Config" do
-    it "when config id doesn't exist" do 
-      expect{ coin_trader.trade(1000) }.to raise_error(RuntimeError) 
+    it "when config id doesn't exist" do
+      expect{ coin_trader.trade(1000) }.to raise_error(RuntimeError)
     end
 
     it "raises an error on an invalid asset allocation" do
@@ -46,7 +46,10 @@ describe CoinTrader, :module do
 
   context "given a valid Config" do
     it "performs a market buy for each asset" do
-      expect{ coin_trader.trade(config.id) }.to_not raise_error 
+      expect{ coin_trader.trade(config.id) }.to_not raise_error
+      expect(config.executions.count).to eq(1)
+      expect(config.executions.first.orders.count).to eq(2)
+      expect(config.executions.first.orders[0].uuid).to_not be_nil
     end
   end
 end
