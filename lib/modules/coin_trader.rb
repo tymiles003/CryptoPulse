@@ -69,7 +69,7 @@ class CoinTrader
     quantity = (limit / rate).floor2(8)
 
     info "Buying #{quantity} of #{market_name} at #{rate} BTC"
-    Bittrex::Order.limit_buy(market_name, quantity, rate)['result']['uuid']
+    Bittrex::Order.limit_buy(market_name, quantity, rate)['result']['uuid'] unless Figaro.env.dry_run
   end
 
   def _trade(id)
@@ -105,12 +105,13 @@ class CoinTrader
     raise "Not enough BTC to transact. Amount required=#{btc_amount}BTC.
       Balance=#{btc_balance} BTC ($#{usd_balance} USD)" if btc_balance.nil? or btc_amount > btc_balance
 
-    exc = conf.executions.create  # Create an execution for this set of trades in the db
+    # Create an execution for this set of trades in the db
+    exc = conf.executions.create unless Figaro.env.dry_run
 
     alloc.each do |asset, contrib|
       amount = btc_amount * (contrib.to_f/100)
       uuid = _market_buy(asset, amount)
-      exc.orders.create(:uuid=>uuid)
+      exc.orders.create(:uuid=>uuid) unless Figaro.env.dry_run
     end
     info "Trades completed."
   end

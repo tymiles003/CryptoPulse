@@ -14,13 +14,18 @@ Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf
 3. `gem install bundle`
 4. `bundle install`
 5. `bundle exec rake db:create db:migrate`
-6. Add a `config/application.yml` file containing your Bittrex API key and secret:
+6. Configure CryptoPulse as outlined below
+
+## Configuring
+1. Add a `config/application.yml` file containing your Bittrex API key and secret:
     ```
     bittrex_api_key: "000"
     bittrex_api_secret: "000"
     ```
-7. Make sure that your servers white list is set correctly in your Bittrex settings.
-8. `bundle exec rails s`
+2. (Optional): To perform dry runs (i.e. no actual trades are made, and no db entries are written):
+    ```
+    dry_run: "true"
+    ```
 
 ## Running the test cases
 1. `rspec` should return all passed results
