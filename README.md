@@ -8,17 +8,19 @@ It executes all trades using BTC pairs.
 Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf. And never leave coins on exchanges for long.__
 
 ## Setup
-1. Install Rails on the server. Here's a guide for [Raspberry Pi](http://elinux.org/RPi_Ruby_on_Rails)
-2. `gem install bundle`
-3. `bundle install`
-4. `bundle exec rake db:create db:migrate`
-5. Add an application.yml file containing your Bittrex API key and secret:
+1. Install Rails on the server. Here's a guide for [Raspberry Pi](http://elinux.org/RPi_Ruby_on_Rails).
+    1. For RPI, I also needed to run `sudo apt-get install postgresql postgresql-contrib libpq-dev` before the `pg` gem would install.
+2. If you're using a production database: modify `config/database.yml` to use the correct login/password.
+3. `gem install bundle`
+4. `bundle install`
+5. `bundle exec rake db:create db:migrate`
+6. Add a `config/application.yml` file containing your Bittrex API key and secret:
     ```
     bittrex_api_key: "000"
     bittrex_api_secret: "000"
     ```
-6. Make sure that your servers white list is set correctly in your Bittrex settings.
-7. `bundle exec rails s`
+7. Make sure that your servers white list is set correctly in your Bittrex settings.
+8. `bundle exec rails s`
 
 ## Running the test cases
 1. `rspec` should return all passed results

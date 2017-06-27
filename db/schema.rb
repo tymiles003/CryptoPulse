@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20170625213841) do
   enable_extension "plpgsql"
 
   create_table "configs", force: :cascade do |t|
-    t.jsonb    "allocation"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.float    "amount",     default: 0.0, null: false
+    t.jsonb    "allocation", default: "{}", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.float    "amount",     default: 0.0,  null: false
   end
 
   create_table "executions", force: :cascade do |t|
