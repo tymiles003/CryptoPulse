@@ -107,13 +107,18 @@ class CoinTrader
 
     # Create an execution for this set of trades in the db
     exc = conf.executions.create unless Figaro.env.dry_run
+    orders = []
 
     alloc.each do |asset, contrib|
+      raise "Cannot buy BTC with BTC" if asset.upcase == 'BTC'
+
       amount = btc_amount * (contrib.to_f/100)
       uuid = _market_buy(asset, amount)
-      exc.orders.create(:uuid=>uuid) unless Figaro.env.dry_run
+      order = exc.orders.create(:uuid=>uuid) unless Figaro.env.dry_run
+      orders.push(order)
     end
     info "Trades completed."
+    orders
   end
 end
 

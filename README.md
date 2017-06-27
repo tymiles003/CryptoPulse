@@ -2,8 +2,11 @@
 
 A dollar cost averaging cryptocurrency trading bot.
 
-CryptoPulse executes periodic trades on the Bittrex exchange using a preset allocation that you set yourself.
-It executes all trades using BTC pairs.
+It's easy to dollar cost average into Bitcoin via exchanges like Coinbase, but it's not as easy to dollar cost average into a diverse set of altcoins. CryptoPulse executes periodic trades on the Bittrex exchange using a preset allocation that you set yourself.
+
+All trades are executed using BTC pairs, so you need enough BTC in your Bittrex account to complete each trade.
+
+Configure the whenever gem to execute trades at your own schedule.
 
 Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf. And never leave coins on exchanges for long.__
 
@@ -22,7 +25,8 @@ Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf
     bittrex_api_key: "000"
     bittrex_api_secret: "000"
     ```
-2. (Optional): To perform dry runs (i.e. no actual trades are made, and no db entries are written):
+2. Configure `config/schedule.rb` and use [whenever](https://github.com/javan/whenever) to update your servers crontabs to automatically execute trades.
+3. (Optional): To perform dry runs (i.e. no actual trades are made, and no db entries are written):
     ```
     dry_run: "true"
     ```
