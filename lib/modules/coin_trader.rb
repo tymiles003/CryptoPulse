@@ -115,9 +115,9 @@ class CoinTrader
       amount = btc_amount * (contrib.to_f/100)
       uuid = _market_buy(asset, amount)
       order = exc.orders.create(:uuid=>uuid) unless Figaro.env.dry_run
-      orders.push(order)
+      orders.push(order.uuid)
     end
-    info "Trades completed."
+    info "Trades completed: #{orders}."
     orders
   end
 end
