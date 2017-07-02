@@ -18,3 +18,10 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+# This is just a sample configuration
+set :output, {:error => '~/cryptopulse.error.log', :standard => '~/cryptopulse.standard.log'}
+
+every :monday, :at => '12am' do
+  rake "trader:go[1]"
+end

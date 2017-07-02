@@ -25,7 +25,7 @@ Note: __Use CryptoPulse at your own risk. It performs market buys on your behalf
     bittrex_api_key: "000"
     bittrex_api_secret: "000"
     ```
-2. Configure `config/schedule.rb` and use [whenever](https://github.com/javan/whenever) to update your servers crontabs to automatically execute trades.
+2. Configure `config/schedule.rb` and use [whenever](https://github.com/javan/whenever) to update your servers crontabs to automatically execute trades. This repo contains a sample configuration to automatically execute a trade every monday at midnight.
 3. (Optional): To perform dry runs (i.e. no actual trades are made, and no db entries are written):
     ```
     dry_run: "true"
